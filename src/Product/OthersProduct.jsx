@@ -31,64 +31,66 @@ const OthersProduct = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-emerald-50/20 min-h-screen py-6">
+    <div className="bg-gradient-to-b from-slate-50 via-white to-emerald-50/20 py-1">
       <div className="mb-6 border-b border-slate-100 py-3">
         <h1 className="w-[95%] mx-auto text-2xl font-bold text-emerald-600 CustomFont flex items-center gap-2">
-          <FiGrid className="text-xl" /> অন্যান্য পণ্যসমূহ 
+          <FiGrid className="text-xl" /> অন্যান্য পণ্যসমূহ
         </h1>
       </div>
 
-      {/* Product Grid */}
-      <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Product Grid - ২ কলাম এবং পারফেক্ট গ্যাপ করা হয়েছে */}
+      <div className="w-[95%] mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <div
               key={product._id || product.id}
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 border border-slate-100"
             >
-              {/* Badge */}
+              {/* Badge - সাইজ ও পজিশন ছোট করা হয়েছে */}
               {product.badge && (
-                <div className="absolute top-4 left-4 z-10 bg-emerald-500 text-white text-xs px-4 py-1 rounded-full shadow font-semibold">
+                <div className="absolute top-2 text-[12px] right-1 z-10 bg-emerald-500 text-white text-xs px-2 py-1 rounded-full shadow">
                   {product.badge}
                 </div>
               )}
 
-              {/* Image */}
-              <figure className="overflow-hidden bg-slate-50">
+              {/* Image - হাইট h-44 করা হয়েছে */}
+              <figure className="overflow-hidden bg-emerald-50/20 relative">
                 <img
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-44 object-cover group-hover:scale-110 transition-transform duration-700"
                   src={product.image}
                   alt={product.title}
                 />
               </figure>
 
-              {/* Content */}
+              {/* Content - টেক্সট সাইজ ও প্যাডিং ছোট করা হয়েছে */}
               <div className="p-4">
-                <h2 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition line-clamp-1">
+                <h2 className="sm:text-lg text-sm font-bold text-gray-800 group-hover:text-emerald-600 transition line-clamp-1">
                   {product.title}
                 </h2>
 
                 {/* DESCRIPTION */}
-                <p className="text-gray-500 text-sm mt-1 line-clamp-2 min-h-[40px]">
+                <p className="text-gray-500 text-[10px] sm:text-sm mt-1 line-clamp-2 min-h-[22px]">
                   {product.description}
                 </p>
 
                 {/* Price */}
-                <div className="flex items-baseline gap-2 mt-2">
-                  <span className="text-xl font-extrabold text-emerald-600">৳{product.price}</span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="sm:text-xl font-extrabold text-emerald-600">
+                    ৳{product.price}
+                  </span>
                   {product.oldPrice && (
-                    <span className="line-through text-gray-400 text-sm">৳{product.oldPrice}</span>
+                    <span className="line-through text-gray-400 text-[13px]">
+                      ৳{product.oldPrice}
+                    </span>
                   )}
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-3 mt-4">
-                 
-
+                <div className="flex gap-3 mt-1">
                   <button
                     onClick={() => orderHandle(product)}
                     type="button"
-                    className="flex-1 cursor-pointer py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-emerald-600 transition"
+                    className="flex-1 cursor-pointer py-2 rounded-sm bg-slate-900 text-white font-semibold text-xs hover:bg-emerald-600 transition"
                   >
                     অর্ডার করুন
                   </button>
@@ -96,7 +98,7 @@ const OthersProduct = () => {
               </div>
 
               {/* Hover Border */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-emerald-400 rounded-3xl transition-all duration-500 pointer-events-none"></div>
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-emerald-400 rounded-xl transition-all duration-500 pointer-events-none"></div>
             </div>
           ))
         ) : (

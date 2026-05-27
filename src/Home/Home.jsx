@@ -9,10 +9,12 @@ const Home = () => {
     <div className="bg-white text-black">
       <div className="w-[95%] mx-auto">
         {/* Heading */}
-        <h2 className="CustomFont text-3xl py-5 text-center ">আপনার পছন্দের সকল পণ্য এখানেই</h2>
+        <h2 className="CustomFont text-xl sm:text-3xl py-3 text-center ">
+          আপনার পছন্দের সকল পণ্য এখানেই
+        </h2>
 
         {/* Social Icons */}
-        <div className="flex gap-8 text-2xl justify-center items-center">
+        <div className="flex gap-6 mb-2  sm:text-2xl justify-center items-center">
           {/* Facebook */}
           <a
             href="https://www.facebook.com/al.amin.hossain.198705"

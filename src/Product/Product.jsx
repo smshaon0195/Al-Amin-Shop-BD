@@ -30,11 +30,11 @@ const Product = () => {
   };
 
   return (
-    <div className="30 py-5 min-h-screen">
+    <div className="py-1 ">
       {/* Title */}
-      <h3 className="text-3xl noto-serif font-bold text-center text-gray-800">
+      <h3 className="sm:text-3xl text-xl noto-serif font-bold text-center text-gray-800">
         জনপ্রিয় পণ্য
-        <span className="block w-32 h-1 bg-amber-500 mx-auto mt-3 rounded-full"></span>
+        <span className="block w-15 sm:w-32 h-1 bg-amber-500 mx-auto mt-3 rounded-full"></span>
       </h3>
 
       <div className="mb-6 border-b border-amber-100 py-3">
@@ -44,16 +44,16 @@ const Product = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="w-[95%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="w-[95%] mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-8">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <div
               key={product._id || product.id}
-              className="group relative overflow-hidden rounded-3xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 border border-amber-100"
+              className="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-2xl transition-all duration-500 border border-amber-100"
             >
               {/* Badge (কালার চেঞ্জ করে ফ্রেশ অ্যাম্বার লুক দেওয়া হয়েছে) */}
               {product.badge && (
-                <div className="absolute top-4 left-4 z-10 bg-amber-500 text-white text-xs px-4 py-1 rounded-full shadow font-semibold">
+                <div className="absolute top-2 text-[12px] right-1 z-10 bg-amber-500 text-white text-xs px-2 py-1 rounded-full shadow ">
                   {product.badge}
                 </div>
               )}
@@ -75,29 +75,31 @@ const Product = () => {
 
               {/* Content */}
               <div className="p-4">
-                <h2 className="text-lg font-bold text-gray-800 group-hover:text-amber-600 transition line-clamp-1">
+                <h2 className="sm:text-lg text-sm font-bold text-gray-800 group-hover:text-amber-600 transition line-clamp-1">
                   {product.title}
                 </h2>
 
                 {/* DESCRIPTION */}
-                <p className="text-gray-500 text-sm mt-1 line-clamp-2 min-h-[40px]">
+                <p className="text-gray-500 text-[10px] sm:text-sm mt-1 line-clamp-2 min-h-[22px]">
                   {product.description}
                 </p>
 
                 {/* Price */}
-                <div className="flex items-baseline gap-2 mt-2">
-                  <span className="text-xl font-extrabold text-amber-600">৳{product.price}</span>
+                <div className="flex items-baseline gap-2 mt-1">
+                  <span className="sm:text-xl font-extrabold text-amber-600">৳{product.price}</span>
                   {product.oldPrice && (
-                    <span className="line-through text-gray-400 text-sm">৳{product.oldPrice}</span>
+                    <span className="line-through text-gray-400 text-[13px]">
+                      ৳{product.oldPrice}
+                    </span>
                   )}
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-3 mt-4">
+                <div className="flex gap-3  mt-1">
                   <button
                     onClick={() => orderHandle(product)}
                     type="button"
-                    className="flex-1 cursor-pointer py-2 rounded-xl bg-gray-900 text-white font-semibold text-xs hover:bg-amber-500 transition"
+                    className="flex-1 cursor-pointer py-2 rounded-sm bg-gray-900 text-white font-semibold text-xs hover:bg-amber-500 transition"
                   >
                     অর্ডার করুন
                   </button>

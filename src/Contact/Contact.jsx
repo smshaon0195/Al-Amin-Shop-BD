@@ -3,7 +3,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { FaFacebookF } from "react-icons/fa";
 const Contact = () => {
   return (
-    <div className="bg-gradient-to-b from-orange-50 to-white min-h-screen py-12 px-4">
+    <div className="bg-gradient-to-b from-orange-50 to-white min-h-screen py-8 px-4">
       {/* Heading */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-800">

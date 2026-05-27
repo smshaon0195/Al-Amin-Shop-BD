@@ -15,21 +15,6 @@ const Categories = () => {
       title: "সরিষার তেল",
       image: "https://shorturl.at/wnB38",
     },
-    {
-      id: 3,
-      title: "সরিষার তেল",
-      image: "https://shorturl.at/wnB38",
-    },
-    {
-      id: 3,
-      title: "সরিষার তেল",
-      image: "https://shorturl.at/wnB38",
-    },
-    {
-      id: 3,
-      title: "সরিষার তেল",
-      image: "https://shorturl.at/wnB38",
-    },
   ];
 
   return (
