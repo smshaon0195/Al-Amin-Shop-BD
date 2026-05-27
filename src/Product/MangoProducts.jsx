@@ -9,9 +9,9 @@ const MangoProducts = () => {
   const { search } = useContext(SearchContext);
 
   const { data: products = [] } = useQuery({
-    queryKey: ["Products"],
+    queryKey: ["products"],
     queryFn: async () => {
-      const result = await axiosSecure.get("/Products");
+      const result = await axiosSecure.get("/products");
       return result.data;
     },
   });
@@ -30,7 +30,7 @@ const MangoProducts = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-amber-50 via-white to-green-50 min-h-screen py-6">
+    <div className=" min-h-screen py-6">
       <div className="mb-6 border-b py-3">
         <h1 className="w-[95%] mx-auto text-2xl font-bold text-orange-600 CustomFont flex items-center gap-2">
           🥭 সকল প্রকার আম
@@ -88,10 +88,6 @@ const MangoProducts = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-3 mt-4">
-                  <button className="flex-1 py-2 text-xs rounded-xl bg-green-600 cursor-pointer text-white font-semibold hover:bg-green-700 transition">
-                    কার্টে যোগ করুন
-                  </button>
-
                   <button
                     onClick={() => orderHandle(product)}
                     type="button"

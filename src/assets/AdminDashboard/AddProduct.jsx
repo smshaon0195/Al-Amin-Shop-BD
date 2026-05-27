@@ -124,8 +124,8 @@ export default function AddProduct() {
     }
 
     try {
-      await axiosSecure.post("Products", baseProduct);
-      queryClient.invalidateQueries(["Products"]);
+      await axiosSecure.post("products", baseProduct);
+      queryClient.invalidateQueries(["products"]);
       toast.success("প্রোডাক্টটি সফলভাবে তালিকায় যুক্ত করা হয়েছে!");
 
       // Form Reset

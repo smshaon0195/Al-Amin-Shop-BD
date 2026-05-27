@@ -27,13 +27,12 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const { data: Products = [] } = useQuery({
-    queryKey: ["Products"],
+    queryKey: ["products"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/Products");
+      const res = await axiosSecure.get("/products");
       return res.data;
     },
   });
-  console.log(Products);
   const handleLogout = () => {
     logOut();
     toast.success("Admin Logout Succesfull");

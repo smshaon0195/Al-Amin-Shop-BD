@@ -1,7 +1,6 @@
 import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import Product from "../Product/Product";
-import Categories from "../Categories/Categories";
 import MangoProducts from "../Product/MangoProducts";
 import OthersProduct from "../Product/OthersProduct";
 
@@ -56,11 +55,6 @@ const Home = () => {
       </div>
       <div>
         <OthersProduct></OthersProduct>
-      </div>
-
-      {/* Categories Section */}
-      <div className="mt-5">
-        <Categories />
       </div>
     </div>
   );

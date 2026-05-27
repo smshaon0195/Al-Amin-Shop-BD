@@ -20,9 +20,9 @@ const AllProducts = () => {
   });
 
   const { data: ProductList = [], refetch } = useQuery({
-    queryKey: ["Products"],
+    queryKey: ["products"],
     queryFn: async () => {
-      const result = await axiosSecure.get("/Products");
+      const result = await axiosSecure.get("/products");
       return result.data;
     },
   });
@@ -143,7 +143,7 @@ const AllProducts = () => {
               <div className="flex gap-3 mt-5">
                 <button
                   onClick={() => handleEdit(p)}
-                  className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl flex items-center justify-center gap-2 transition"
+                  className="flex-1 cursor-pointer bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-xl flex items-center justify-center gap-2 transition"
                 >
                   <FiEdit2 />
                   Edit
@@ -151,7 +151,7 @@ const AllProducts = () => {
 
                 <button
                   onClick={() => handleDelete(p)}
-                  className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 rounded-xl flex items-center justify-center gap-2 transition"
+                  className="flex-1 cursor-pointer bg-red-500 hover:bg-red-600 text-white py-2 rounded-xl flex items-center justify-center gap-2 transition"
                 >
                   <FiTrash2 />
                   Delete

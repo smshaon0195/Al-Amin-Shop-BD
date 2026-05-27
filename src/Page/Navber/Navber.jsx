@@ -1,17 +1,20 @@
 import { useState, useRef, useEffect, useContext } from "react";
-import { NavLink } from "react-router";
-import { CartContext } from "../../OrderPage/CartContext";
+import { NavLink, useNavigate } from "react-router";
 import { SearchContext } from "../../assets/SearchContext/SearchContext";
+import { FiLogIn } from "react-icons/fi";
 
 const Navber = () => {
-  const { cart } = useContext(CartContext);
   const { search, setSearch } = useContext(SearchContext);
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
   const searchRef = useRef(null);
   const inputRef = useRef(null);
+  const AdminLogin = () => {
+    navigate("/user-admin-login");
+  };
 
   // Close Search Outside Click
   useEffect(() => {
@@ -135,62 +138,18 @@ const Navber = () => {
             </button>
           </div>
 
-          {/* CART */}
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle hover:bg-orange-100"
-            >
-              <div className="indicator">
-                <span className="text-xl">🛒</span>
+          {/* Admin Login */}
 
-                <span className="badge badge-sm badge-success indicator-item text-white">
-                  {cart.length}
-                </span>
-              </div>
-            </div>
-
-            {/* CART DROPDOWN */}
-            <div
-              tabIndex={0}
-              className="card card-compact dropdown-content bg-white z-50 mt-3 w-72 shadow-2xl rounded-2xl border"
-            >
-              <div className="card-body">
-                <h2 className="text-xl font-bold">Shopping Cart</h2>
-
-                <p className="text-gray-500">Total Items: {cart.length}</p>
-
-                <div className="max-h-60 overflow-y-auto space-y-3">
-                  {cart.length > 0 ? (
-                    cart.map((item) => (
-                      <div key={item._id} className="flex items-center gap-3 border rounded-xl p-2">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-14 h-14 rounded-lg object-cover"
-                        />
-
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-sm line-clamp-1">{item.title}</h3>
-
-                          <p className="text-green-600 font-bold">৳ {item.price}</p>
-
-                          <p className="text-xs text-gray-500">Qty: {item.qty}</p>
-                        </div>
-                      </div>
-                    ))
-                  ) : (
-                    <div className="text-center py-5 text-gray-500">Cart is Empty</div>
-                  )}
-                </div>
-
-                <div className="card-actions mt-4">
-                  <button className="btn btn-success w-full text-white rounded-xl">
-                    View Cart
-                  </button>
-                </div>
-              </div>
+          <div
+            onClick={AdminLogin}
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle hover:bg-orange-100"
+          >
+            <div className="indicator">
+              <span className="text-xl">
+                <FiLogIn className="text-2xl text-green-500" />
+              </span>
             </div>
           </div>
         </div>

@@ -10,9 +10,9 @@ const OthersProduct = () => {
   const { search } = useContext(SearchContext);
 
   const { data: products = [] } = useQuery({
-    queryKey: ["Products"],
+    queryKey: ["products"],
     queryFn: async () => {
-      const result = await axiosSecure.get("/Products");
+      const result = await axiosSecure.get("/products");
       return result.data;
     },
   });
@@ -83,9 +83,7 @@ const OthersProduct = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-3 mt-4">
-                  <button className="flex-1 py-2 text-xs rounded-xl bg-emerald-600 cursor-pointer text-white font-semibold hover:bg-emerald-700 transition">
-                    কার্টে যোগ করুন
-                  </button>
+                 
 
                   <button
                     onClick={() => orderHandle(product)}
