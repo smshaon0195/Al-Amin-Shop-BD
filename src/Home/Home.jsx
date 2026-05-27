@@ -2,6 +2,8 @@ import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import Product from "../Product/Product";
 import Categories from "../Categories/Categories";
+import MangoProducts from "../Product/MangoProducts";
+import OthersProduct from "../Product/OthersProduct";
 
 const Home = () => {
   return (
@@ -48,6 +50,12 @@ const Home = () => {
       {/* Product Section */}
       <div>
         <Product />
+      </div>
+      <div>
+        <MangoProducts></MangoProducts>
+      </div>
+      <div>
+        <OthersProduct></OthersProduct>
       </div>
 
       {/* Categories Section */}
