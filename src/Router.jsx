@@ -10,6 +10,7 @@ import PendingOrders from "./assets/AdminDashboard/PendingOrders";
 import DeliveredProduct from "./assets/AdminDashboard/DeliveredProduct";
 import AdminLogin from "./assets/AdminDashboard/AdminLogin";
 import PrivateRoute from "./assets/AdminDashboard/PrivateRoute";
+import AllProducts from "./Product/AllProducts";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <DeliveredProduct></DeliveredProduct>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/user-admin-dashboard/all-Product",
+        element: (
+          <PrivateRoute>
+            <AllProducts></AllProducts>,
           </PrivateRoute>
         ),
       },

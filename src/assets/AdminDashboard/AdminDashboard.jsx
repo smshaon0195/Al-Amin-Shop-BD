@@ -7,6 +7,23 @@ import toast from "react-hot-toast";
 const AdminDashboard = () => {
   const { logOut } = useAuth();
 
+  const {
+    data: orders = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["pending-orders"],
+    queryFn: async () => {
+      const result = await axiosSecure.get("/orders");
+      return result.data;
+    },
+  });
+  console.log(orders);
+  // Filter Pending Orders
+  const pendingOrders = orders.filter((order) => order.orderStatus === "pending");
+
+  console.log(pendingOrders);
+
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const { data: Products = [] } = useQuery({
@@ -16,6 +33,7 @@ const AdminDashboard = () => {
       return res.data;
     },
   });
+  console.log(Products);
   const handleLogout = () => {
     logOut();
     toast.success("Admin Logout Succesfull");
@@ -23,6 +41,9 @@ const AdminDashboard = () => {
   };
   const handaleAddProduct = () => {
     navigate("/user-admin-dashboard/add-product");
+  };
+  const handaleAllProduct = () => {
+    navigate("/user-admin-dashboard/all-product");
   };
   const PendingOrders = () => {
     navigate("/user-admin-dashboard/Pending-Orders");
@@ -45,8 +66,11 @@ const AdminDashboard = () => {
         </button>
 
         {/* All Products */}
-        <button className="bg-white cursor-pointer text-gray-500 border-0 border p-5 rounded-xl flex items-center gap-3 hover:shadow">
-          <FiBox /> All Products
+        <button
+          onClick={handaleAllProduct}
+          className="bg-white cursor-pointer text-gray-500 border-0 border p-5 rounded-xl flex items-center gap-3 hover:shadow"
+        >
+          <FiBox /> All Products <span className="text-green-500">({Products.length})</span>
         </button>
 
         {/* Pending Orders */}
@@ -54,7 +78,7 @@ const AdminDashboard = () => {
           onClick={PendingOrders}
           className="bg-yellow-100 cursor-pointer text-yellow-800 p-5 rounded-xl flex items-center gap-3 hover:shadow"
         >
-          <FiClock /> Pending Orders
+          <FiClock /> Pending Orders <span className="text-red-600">({pendingOrders.length})</span>
         </button>
 
         {/* All Orders */}
